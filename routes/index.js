@@ -9,6 +9,12 @@ router.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
+router.get('/extension/translate', function(req, res, next) {
+    let  text = req.body.text;
+
+    res.send({"text": "after translate: " + text});
+});
+
 router.post('/rephrase', async function(req, res, next) {
     let text = req.body.text;
     // text = '{\n' + text + '\n}';
